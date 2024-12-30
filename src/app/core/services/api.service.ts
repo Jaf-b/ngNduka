@@ -8,5 +8,6 @@ export class ApiService {
   API_URL = 'https://fakestoreapi.com/';
   http = inject(HttpClient);
 
-  getAllProduct = () => this.http.get('https://fakestoreapi.com/products');
+  getAllProduct = (categorie: string) =>
+    this.http.get(`https://fakestoreapi.com/${categorie}`);
 }
