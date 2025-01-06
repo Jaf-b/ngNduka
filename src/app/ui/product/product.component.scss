@@ -1,0 +1,25 @@
+.product-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2rem auto !important;
+
+  img {
+    width: 50%;
+  }
+
+  .product-info {
+    width: 40%;
+  }
+}
+
+.disabled-btn {
+  background: grey;
+  opacity: 0.5;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

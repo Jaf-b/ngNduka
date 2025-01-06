@@ -1,0 +1,36 @@
+<main>
+  <header>
+    <h3>{{ sectionTitle() }}</h3>
+    @if (queryLimitCount() !== undefined) {
+    <a [routerLink]="'/products/' + queryParams()" class="action">
+      <span>voir plus</span>
+      <mat-icon>arrow_forward</mat-icon>
+    </a>
+    }
+  </header>
+  @if (loading()) {
+  <mat-progress-bar mode="query"></mat-progress-bar>
+  } @else{
+  <div class="product-container">
+    @for (product of products; track $index) {
+    <a [routerLink]="'/product/' + product.id" class="product-card">
+      <img [src]="product.image" />
+      <div class="product-info">
+        <p class="truncate">
+          {{ product.title }}
+        </p>
+        <p>
+          <b>$ {{ product.price }}</b>
+        </p>
+      </div>
+    </a>
+    }@empty {
+    <p align="center">
+      oups! Aucun produit trouvé! <br />
+      verifier votre connexion internet.
+    </p>
+    }
+  </div>
+
+  }
+</main>

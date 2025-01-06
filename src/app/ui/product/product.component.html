@@ -1,1 +1,47 @@
-<p>product works!</p>
+<main class="max-width">
+  @if (loading()) {
+  <mat-progress-bar mode="query"></mat-progress-bar>
+  }@else { @if (product) {
+  <div class="product-container">
+    <img [src]="product.image" alt="product image" />
+    <div class="product-info">
+      <p>
+        <b>{{ product.title }}</b>
+      </p>
+      <p>{{ product.category }}</p>
+      <p>
+        <b>$ {{ product.price }}</b>
+      </p>
+      <div class="quantity-container">
+        <span>Quantité:</span>
+        <button (click)="operation('remove')" [disabled]="quantity() === 1">
+          -
+        </button>
+        <span
+          ><b>{{ quantity() }} </b></span
+        >
+        <button (click)="operation('add')" [disabled]="quantity() === 5">
+          +
+        </button>
+      </div>
+      <hr />
+      <span
+        ><b>Total: $ {{ product.price! * quantity() }} </b></span
+      >
+      <button (click)="AddToCard()">Ajouter au panier</button>
+      <br />
+      <hr />
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+  }@else {
+  <h1 align="center">Oups! Aucun produit trouvé</h1>
+  } }
+
+  <br />
+  <br />
+  <app-product-list
+    [queryParams]="'allProduct'"
+    [sectionTitle]="'Vous pourriez aimer ceci'"
+  />
+</main>

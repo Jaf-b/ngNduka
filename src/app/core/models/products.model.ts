@@ -279,3 +279,9 @@ const produits: Product[] = [
     },
   },
 ];
+
+export interface category {
+  title: string;
+  queryParams: string;
+  limitCount: number;
+}
