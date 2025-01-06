@@ -23,3 +23,17 @@
   align-items: center;
   gap: 0.5rem;
 }
+button {
+  background: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+    scale: 0.95;
+  }
+}
